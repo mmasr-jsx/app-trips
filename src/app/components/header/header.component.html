@@ -1,0 +1,13 @@
+<div class="flex justify-between bg-white items-center border-b">
+  <app-logo />
+  <div class="flex w-2/5 mx-8">
+    <div class="flex-1 flex items-center justify-center">
+      <p class="font-semibold text-5xl">Hey check out our Trip of the day!</p>
+    </div>
+    <div class="left-corner self-center mx-4"></div>
+
+    <div class="flex-1 flex items-center justify-center">
+      <app-trip-otd [trip]="store.tripOtd()" />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,102 @@
+@if (this.trip) {
+<div class="bg-gray-50 w-full h-screen flex justify-center">
+  <div class="bg-gray-100 py-8 w-10/12 my-12 h-2/3">
+    <div class="flex flex-col md:flex-row mx-4 gap-12 self-center mt-24">
+      <div class="md:flex-1 px-4 py-2 h-full">
+        <div class="relative h-8/12 rounded-lg bg-gray-300 mb-4 h-[800px]">
+          <img
+            class="object-cover self-center"
+            [ngSrc]="trip.imageUrl"
+            fill
+            [alt]="trip.title"
+            priority
+          />
+        </div>
+      </div>
+      <div class="md:flex-1 px-4">
+        <div class="my-2">
+          <app-trip-rating [trip]="trip" />
+        </div>
+        <h2 class="text-6xl font-extrabold text-gray-800 dark:text-white mb-2">
+          {{ this.trip.title }}
+        </h2>
+        <div class="w-1/2 px-2 flex flex-row gap-4 mb-4">
+          @for (tag of trip.tags; track $index) {
+          <p
+            class="text-gray-500 hover:text-gray-800 text-2xl font-semibold mb-4"
+          >
+            #{{ tag }}
+          </p>
+          }
+        </div>
+        <div class="flex mb-12">
+          <div class="mr-4">
+            <span class="font-bold text-gray-700 text-2xl dark:text-gray-300"
+              >Price:</span
+            >
+            <span
+              class="text-gray-600 font-semibold text-2xl dark:text-gray-300"
+            >
+              ${{ trip.price }}</span
+            >
+          </div>
+          <div class="mr-4">
+            <span class="font-bold text-gray-700 text-2xl dark:text-gray-300"
+              >Travel type:</span
+            >
+            <span
+              class="text-gray-600 font-semibold text-2xl dark:text-gray-300"
+            >
+              {{ trip.verticalType }}</span
+            >
+          </div>
+          <div class="mr-4">
+            <span class="font-bold text-gray-700 text-2xl dark:text-gray-300"
+              >Rated:</span
+            >
+            <span
+              class="text-gray-600 font-semibold text-2xl dark:text-gray-300"
+            >
+              {{ trip.nrOfRatings }} times!</span
+            >
+          </div>
+        </div>
+
+        <div>
+          <span class="font-extrabold text-gray-700 dark:text-gray-300 text-5xl"
+            >Trip Description:</span
+          >
+          <p
+            class="text-gray-600 dark:text-gray-300 text-2xl mt-2 font-semibold"
+          >
+            {{ trip.description }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+} @else {
+<div class="bg-slate-500 w-full flex">
+  <div class="bg-gray-50 w-full h-screen flex justify-center">
+    <div class="bg-gray-100 py-8 w-10/12 my-12 h-6/12">
+      <div class="flex flex-col md:flex-row mx-4 gap-12 self-center mt-24">
+        <div class="md:flex-1 px-4 py-2">
+          <div class="relative h-[900px] rounded-lg bg-gray-300 mb-4">
+            <img class="object-cover" ngSrc="/logo.jpg" fill priority />
+          </div>
+        </div>
+        <div class="md:flex-1 px-4 flex flex-col justify-center items-center">
+          <p class="text-gray-700 text-6xl font-bold pb-12">
+            The trip details you are trying to reach are not available at this
+            time, please try againt later
+          </p>
+          <p class="text-gray-700 text-6xl font-bold">
+            we are sorry for the inconvenience.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+}

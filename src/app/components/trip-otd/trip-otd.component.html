@@ -1,0 +1,32 @@
+@let tripOtd = trip(); @if (tripOtd) {
+<a [routerLink]="['/details', tripOtd.id]">
+  <div class="relative my-2 flex max-w-[400px] max-h-[200px]">
+    <img
+      class="object-cover rounded-md"
+      src="{{ tripOtd.imageUrl }}"
+      width="400"
+      height="200"
+    />
+
+    <app-trip-rating
+      class="absolute self-start mt-2 ml-2 z-40"
+      [trip]="tripOtd"
+    />
+
+    <div class="absolute inset-0 flex items-center justify-center">
+      <p class="absolute text-white text-3xl font-bold z-40">
+        {{ tripOtd.title }}
+      </p>
+      <div class="flex justify-end items-end w-full absolute inset-0">
+        <p class="text-gray-300 font-bold text-xl px-4 pb-4 z-40">
+          @for (tag of tripOtd.tags; track $index) { #{{ tag }}
+          }
+        </p>
+      </div>
+    </div>
+    <div
+      class="absolute inset-0 bg-gray-700 opacity-60 rounded-md hover:opacity-0 transition-opacity duration-1000"
+    ></div>
+  </div>
+</a>
+}

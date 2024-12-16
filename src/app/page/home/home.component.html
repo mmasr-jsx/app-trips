@@ -1,0 +1,20 @@
+<div class="bg-gray-50 w-full flex">
+  <div class="flex flex-col w-full min-h-screen mx-40 my-40 bg-gray-100">
+    <app-sorting />
+    <app-pagination
+      [totalPages]="totalPages()"
+      [currentPage]="currentPage()"
+      [movePage]="movePage"
+    />
+    <div class="w-full h-full gap-8 grid grid-cols-3 py-8">
+      @defer (when store.curItems().length) { @for(trip of store.curItems();
+      track trip.id) {
+      <div class="grid justify-items-center my-2">
+        <a [routerLink]="['/details', trip.id]">
+          <app-trip-card [trip]="trip" />
+        </a>
+      </div>
+      } }
+    </div>
+  </div>
+</div>

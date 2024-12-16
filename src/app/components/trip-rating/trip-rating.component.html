@@ -1,0 +1,16 @@
+@switch (getRating()) { @case ("Average") {
+<label
+  class="bg-amber-700 rounded-full self-start text-white font-extrabold text-2xl px-3 pb-1"
+  >{{ getRating() }}</label
+>
+} @case ("Good") {
+<label
+  class="bg-amber-500 rounded-full self-start text-white font-extrabold text-2xl px-3 pb-1"
+  >{{ getRating() }}</label
+>
+} @case ("Awesome") {
+<label
+  class="bg-teal-400 rounded-full self-start text-white font-extrabold text-2xl px-3 pb-1"
+  >{{ getRating() }}</label
+>
+}@case ("") {} }
